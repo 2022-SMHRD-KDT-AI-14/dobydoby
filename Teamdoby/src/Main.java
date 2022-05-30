@@ -8,6 +8,7 @@ public class Main {
 		System.out.println("Çª½¬Çª½¬");
 		System.out.println("³ª»Ûµµºñ");
 		System.out.println("Èûµé¾î¿ä");
+		
 	}
 
 }
