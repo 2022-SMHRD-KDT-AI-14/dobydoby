@@ -22,12 +22,14 @@ public class RankDAO {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 			
-			
+			int i = 1;;
 			while(rs.next()) {
+				
 				String name = rs.getString(1);
 				String id = rs.getString(2);
 				String score = rs.getString(3);
-				System.out.println(name+"\t"+id+"\t"+score);
+				System.out.println(i+"\t"+name+"\t"+id+"\t"+score);
+				i++;
 			}
 						
 		} catch (SQLException e) {
