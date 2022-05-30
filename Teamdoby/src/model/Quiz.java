@@ -19,12 +19,6 @@ public class Quiz {
 
 
 
-	public Quiz() {
-		// TODO Auto-generated constructor stub
-	}
-
-
-
 	public void QuizEasy(int a) {
 
 		
@@ -59,8 +53,8 @@ public class Quiz {
 			// 3. SQL문 실행
 			String sql = "select qui from quizL where num = ? ";
 			try {
-				psmt.setInt(1, a);
 				psmt = conn.prepareStatement(sql);
+				psmt.setInt(1, a);
 				rs = psmt.executeQuery();
 				if(rs.next()) {
 					String result = rs.getString(1);
@@ -123,11 +117,15 @@ public class Quiz {
 		// 3. SQL문 실행
 		String sql = "select qui from quizM where num = ?";
 		try {
-			psmt.setInt(1, a);
 			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, a);
 			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				String result = rs.getString(1);
+				System.out.println(result);}
 
-			System.out.println(rs);
+//			System.out.println(rs);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -187,11 +185,15 @@ public class Quiz {
 	// 3. SQL문 실행
 	String sql = "select qui from quizH where num = ?";
 	try {
-		psmt.setInt(1, a);
 		psmt = conn.prepareStatement(sql);
+		psmt.setInt(1, a);
 		rs = psmt.executeQuery();
+		
+		if(rs.next()) {
+			String result = rs.getString(1);
+			System.out.println(result);}
 
-		System.out.println(rs);
+//		System.out.println(rs);
 
 	} catch (SQLException e) {
 		e.printStackTrace();

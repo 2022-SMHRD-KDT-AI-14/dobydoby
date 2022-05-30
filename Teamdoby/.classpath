@@ -7,6 +7,6 @@
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="C:/oraclexe/app/oracle/product/11.2.0/server/jdbc/lib/ojdbc6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/smhrd/Desktop/Java/- 자바_관련 자료/자료/수업자료/MP3/player.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Donald/Dropbox/스마트인재개발원/미니프로젝트1_자바/player.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

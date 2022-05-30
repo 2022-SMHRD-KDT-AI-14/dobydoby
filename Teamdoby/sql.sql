@@ -43,22 +43,22 @@ ans varchar2(50),
 constraint quizH_num_pk primary key(num)
 );
 
-insert into quizL
+insert into quizH
 values(1, '문제1', '답1');
 
-insert into quizL
+insert into quizH
 values(2, '문제2', '답2');
 
-insert into quizL
+insert into quizH
 values(3, '문제3', '답3');
 
-insert into quizL
+insert into quizH
 values(4, '문제4', '답4');
 
-insert into quizL
+insert into quizH
 values(5, '문제5', '답5');
 
-select * from quizL;
+select * from quizH;
 
 
 

@@ -12,16 +12,15 @@ public class True_answer {
 	PreparedStatement psmt = null; 
 	ResultSet rs = null;
 	String rs2 = null;
+	String result = "";
 	public int answer_number(int a) {
 		this.a=a;
 		return a;
 	}
 	
 	
-	
-	public String answer_easy() {
-	
-		
+	public String answer_easy(int a) {
+			
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -53,10 +52,16 @@ public class True_answer {
 		String sql = "select ans from quizL where num = ?";
 		
 		try {
-			psmt.setInt(1, a);
+			
 			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, a);
 			rs = psmt.executeQuery();
-rs2 = rs.getString(1);
+			if(rs.next()) {
+				result = rs.getString(1);
+				
+			}
+			
+//			rs2 = rs.getString(1);
 			
 
 		} catch (SQLException e) {
@@ -80,13 +85,13 @@ rs2 = rs.getString(1);
 				e.printStackTrace();
 			}
 		}
-		
-		return rs2;
+	
+		return result;
 	}
 
 	
 
-public String answer_normal() {
+public String answer_normal(int a) {
 	
 	try {
 		Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -117,10 +122,13 @@ public String answer_normal() {
 	// 3. SQL문 실행
 	String sql = "select ans from quizL where num = ?";
 	try {
-		psmt.setInt(1, a);
 		psmt = conn.prepareStatement(sql);
+		psmt.setInt(1, a);
 		rs = psmt.executeQuery();
-rs2 = rs.getString(1);
+		if(rs.next()) {
+			result = rs.getString(1);	// result 를 지역변수로 설정해놓음 그래서 return result 값이 null로 나옴
+//			System.out.println(result);
+		}
 
 	} catch (SQLException e) {
 		e.printStackTrace();
@@ -142,11 +150,11 @@ rs2 = rs.getString(1);
 			e.printStackTrace();
 		}
 	}
-return rs2;
+return result;
 
 }
 	
-public String answer_hard() {
+public String answer_hard(int a) {
 		
 	
 
@@ -179,10 +187,13 @@ public String answer_hard() {
 	// 3. SQL문 실행
 	String sql = "select ans from quizL where num = ?";
 	try {
-		psmt.setInt(1, a);
 		psmt = conn.prepareStatement(sql);
+		psmt.setInt(1, a);
 		rs = psmt.executeQuery();
-rs2 = rs.getString(1);
+		if(rs.next()) {
+			result = rs.getString(1);
+//			System.out.println(result);
+		}
 
 	} catch (SQLException e) {
 		e.printStackTrace();
@@ -204,6 +215,6 @@ rs2 = rs.getString(1);
 			e.printStackTrace();
 		}
 	}
-	return rs2;
+	return result;
 }
 }
