@@ -55,16 +55,17 @@ public class Quiz {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-
+			
 			// 3. SQL문 실행
-			String sql = "select qui from quizL where no = ?";
+			String sql = "select qui from quizL where num = ? ";
 			try {
 				psmt.setInt(1, a);
 				psmt = conn.prepareStatement(sql);
 				rs = psmt.executeQuery();
-
-				System.out.println(rs);
-
+				if(rs.next()) {
+					String result = rs.getString(1);
+					System.out.println(result);
+}
 			} catch (SQLException e) {
 				e.printStackTrace();
 			
@@ -120,7 +121,7 @@ public class Quiz {
 		}
 
 		// 3. SQL문 실행
-		String sql = "select qui from quizM where no = ?";
+		String sql = "select qui from quizM where num = ?";
 		try {
 			psmt.setInt(1, a);
 			psmt = conn.prepareStatement(sql);
@@ -184,7 +185,7 @@ public class Quiz {
 	}
 
 	// 3. SQL문 실행
-	String sql = "select qui from quizH where no = ?";
+	String sql = "select qui from quizH where num = ?";
 	try {
 		psmt.setInt(1, a);
 		psmt = conn.prepareStatement(sql);

@@ -35,3 +35,30 @@ values('smhrd2', '1234', '김윤주')
 
 select * from user_info;
 select * from ranking;
+
+create table quizH(
+num number(4),
+qui varchar2(500),
+ans varchar2(50),
+constraint quizH_num_pk primary key(num)
+);
+
+insert into quizL
+values(1, '문제1', '답1');
+
+insert into quizL
+values(2, '문제2', '답2');
+
+insert into quizL
+values(3, '문제3', '답3');
+
+insert into quizL
+values(4, '문제4', '답4');
+
+insert into quizL
+values(5, '문제5', '답5');
+
+select * from quizL;
+
+
+

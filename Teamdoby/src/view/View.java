@@ -78,40 +78,7 @@ public class View {
 				dao.prolog();
 				
 				
-				
-				
-				
-			}
-			
-			if(menu==2) {	// 회원가입
-				System.out.println("==== 회원가입 ====");
-				System.out.print("ID를 입력해주세요 >> ");
-				String id = sc.next();
-				System.out.print("PW를 입력해주세요 >> ");
-				String pw = sc.next();
-				System.out.print("NickName을 입력해주세요 >>");
-				String name = sc.next();
-				
-				user_infoDTO dto = new user_infoDTO(id, pw, name);
-				user_infoDAO dao = new user_infoDAO();
-				cnt = dao.insert(dto);
-				if(cnt>0) {
-					System.out.println("회원가입에 성공하셨습니다.");
-				}
-				
-				
-			}
-			if(menu==3) {	// 랭킹
-				
-				
-			}
-			if(menu==4) {	// 종료
-				System.out.println("종료되었습니다.");
-				break;
-			}
-			
-		}
-		// 문제 출력
+				// 문제 출력(건빈영역)
 				// 초급 악마
 				int[]list = new int[3];
 				int[]list2 = new int[4];
@@ -123,7 +90,7 @@ public class View {
 				model.Quiz quiz = new model.Quiz();
 				
 				for(int k=0 ; k<3;k++) {
-					list[k]=	r.nextInt(10)+1;
+					list[k]=	r.nextInt(5)+1;
 					for(int k2=0 ; k2<k ;k2++) {
 					if(list[k]==list[k2]) {
 						k--;
@@ -188,6 +155,42 @@ public class View {
 			}
 
 				}
+				
+				
+				
+				
+				
+			}
+			
+			if(menu==2) {	// 회원가입
+				System.out.println("==== 회원가입 ====");
+				System.out.print("ID를 입력해주세요 >> ");
+				String id = sc.next();
+				System.out.print("PW를 입력해주세요 >> ");
+				String pw = sc.next();
+				System.out.print("NickName을 입력해주세요 >>");
+				String name = sc.next();
+				
+				user_infoDTO dto = new user_infoDTO(id, pw, name);
+				user_infoDAO dao = new user_infoDAO();
+				cnt = dao.insert(dto);
+				if(cnt>0) {
+					System.out.println("회원가입에 성공하셨습니다.");
+				}
+				
+				
+			}
+			if(menu==3) {	// 랭킹
+				
+				
+			}
+			if(menu==4) {	// 종료
+				System.out.println("종료되었습니다.");
+				break;
+			}
+			
+		}
+		
 		
 
 	}

@@ -20,8 +20,7 @@ public class True_answer {
 	
 	
 	public String answer_easy() {
-
-		
+	
 		
 
 		try {
@@ -51,7 +50,7 @@ public class True_answer {
 		}
 
 		// 3. SQL문 실행
-		String sql = "select ans from quizL where no = ?";
+		String sql = "select ans from quizL where num = ?";
 		
 		try {
 			psmt.setInt(1, a);
@@ -116,7 +115,7 @@ public String answer_normal() {
 	}
 
 	// 3. SQL문 실행
-	String sql = "select ans from quizL where no = ?";
+	String sql = "select ans from quizL where num = ?";
 	try {
 		psmt.setInt(1, a);
 		psmt = conn.prepareStatement(sql);
@@ -178,7 +177,7 @@ public String answer_hard() {
 	}
 
 	// 3. SQL문 실행
-	String sql = "select ans from quizL where no = ?";
+	String sql = "select ans from quizL where num = ?";
 	try {
 		psmt.setInt(1, a);
 		psmt = conn.prepareStatement(sql);
