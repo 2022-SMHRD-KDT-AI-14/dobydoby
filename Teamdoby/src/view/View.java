@@ -118,7 +118,7 @@ public class View {
 				int[]list2 = new int[4];
 				int Score=0;
 				int life =3;
-				Scanner sc = new Scanner(System.in);
+				
 				Random r = new Random();
 				True_answer ans = new True_answer();
 				Quiz quiz = new Quiz();
