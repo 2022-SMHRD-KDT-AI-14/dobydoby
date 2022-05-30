@@ -7,8 +7,7 @@ import javazoom.jl.player.MP3Player;
 import model.PrologDAO;
 import model.user_infoDAO;
 import model.user_infoDTO;
-import 미니프로젝트.Quiz;
-import 미니프로젝트.True_answer;
+
 
 public class View {
 
@@ -120,8 +119,8 @@ public class View {
 				int life =3;
 				
 				Random r = new Random();
-				True_answer ans = new True_answer();
-				Quiz quiz = new Quiz();
+				model.True_answer ans = new model.True_answer();
+				model.Quiz quiz = new model.Quiz();
 				
 				for(int k=0 ; k<3;k++) {
 					list[k]=	r.nextInt(10)+1;
