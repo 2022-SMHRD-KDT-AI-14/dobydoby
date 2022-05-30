@@ -1,11 +1,14 @@
 package view;
 
+import java.util.Random;
 import java.util.Scanner;
 
 import javazoom.jl.player.MP3Player;
 import model.PrologDAO;
 import model.user_infoDAO;
 import model.user_infoDTO;
+import 미니프로젝트.Quiz;
+import 미니프로젝트.True_answer;
 
 public class View {
 
@@ -109,7 +112,83 @@ public class View {
 			}
 			
 		}
-		
+		// 문제 출력
+				// 초급 악마
+				int[]list = new int[3];
+				int[]list2 = new int[4];
+				int Score=0;
+				int life =3;
+				Scanner sc = new Scanner(System.in);
+				Random r = new Random();
+				True_answer ans = new True_answer();
+				Quiz quiz = new Quiz();
+				
+				for(int k=0 ; k<3;k++) {
+					list[k]=	r.nextInt(10)+1;
+					for(int k2=0 ; k2<k ;k2++) {
+					if(list[k]==list[k2]) {
+						k--;
+					}
+					
+			for(int  j = 0 ; j<1 ;j++) {	
+				for (int i = 0; i < 3; i++) {
+				
+					quiz.QuizEasy(list[i]);
+					ans.answer_number(list[i]);
+					System.out.print("정답을 입력하세요 >> ");
+					String answer_easy = sc.next();
+					
+					if(answer_easy.equals(ans.answer_easy())) {
+						Score++;
+					}else {
+						life--;
+					}
+
+				}if(life<=0) {
+					System.out.println("GAME OVER");
+					break;
+				}
+				life = 3;
+				// 중급 악마
+				for (int i = 0; i < 4; i++) {
+					
+					
+						quiz.QuizNormal(list[i]);
+						ans.answer_number(list[i]);
+					System.out.println("정답을 입력하세요 >> ");
+					String answer_normal = sc.next();
+					if(answer_normal.equals(ans.answer_normal())) {
+						Score++;
+					}
+
+				}if(life<=0) {
+					System.out.println("GAME OVER");
+					break;
+				}
+				life = 3;
+				// 고급 악마
+				for (int i = 0; i < 3; i++) {
+				
+					
+						
+						quiz.QuizHard(list[i]);
+						ans.answer_number(list[i]);
+					System.out.println("정답을 입력하세요 >> ");
+					String answer_hard = sc.next();
+					if(answer_hard.equals(ans.answer_hard())) {
+						Score++;
+					}
+
+				}
+				if(Score>=7) {
+					System.out.println("해피 엔딩");
+				}else {
+					System.out.println("베드 엔딩");
+				}
+			}
+			}
+
+				}
 		
 
 	}
