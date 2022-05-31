@@ -184,7 +184,7 @@ public class View {
 					
 					quiz.QuizNormal(list2[i]);
 					ans.answer_normal(list2[i]);
-					System.out.println("정답을 입력하세요 >> ");
+					System.out.print("정답을 입력하세요 >> ");
 					String answer_normal = sc.next();
 					if(answer_normal.equals(ans.answer_normal(list2[i]))) {
 						Score++;
@@ -211,7 +211,7 @@ public class View {
 						
 						quiz.QuizHard(list[i]);
 						ans.answer_hard(list[i]);
-					System.out.println("정답을 입력하세요 >> ");
+					System.out.print("정답을 입력하세요 >> ");
 					String answer_hard = sc.next();
 					if(answer_hard.equals(ans.answer_hard(list[i]))) {
 						Score++;
