@@ -4,7 +4,7 @@ public class Prolog {
 
 	public static void main(String[] args) {
 		String name = "¤·¤·";
-		
+		//
 		System.out.println("  ___    _____      _    _                     _              \r\n"
 				+ " / _ \\  |_   _|    | |  | |                   (_)             \r\n"
 				+ "/ /_\\ \\   | |      | |  | |  __ _  _ __  _ __  _   ___   _ __ \r\n"
