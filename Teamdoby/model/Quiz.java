@@ -128,7 +128,10 @@ public class Quiz {
 			psmt.setInt(1, a);
 			rs = psmt.executeQuery();
 
-			System.out.println(rs);
+			if(rs.next()) {
+				String result = rs.getString(1);
+				System.out.println(result);
+}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -193,7 +196,10 @@ public class Quiz {
 		psmt.setInt(1, a);
 		rs = psmt.executeQuery();
 
-		System.out.println(rs);
+		if(rs.next()) {
+			String result = rs.getString(1);
+			System.out.println(result);
+}
 
 	} catch (SQLException e) {
 		e.printStackTrace();

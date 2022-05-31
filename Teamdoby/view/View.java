@@ -129,7 +129,7 @@ public class View {
 				model.Quiz quiz = new model.Quiz();
 				
 				for(int k=0 ; k<3;k++) {
-					list[k]=r.nextInt(5)+1;
+					list[k]=r.nextInt(10)+1;
 					for(int k2=0 ; k2<k ;k2++) {
 					if(list[k]==list[k2]) {
 						k--;
@@ -137,8 +137,8 @@ public class View {
 					}
 					}
 				}
-				for(int k=0 ; k<3;k++) {
-					list2[k]=r.nextInt(5)+1;
+				for(int k=0 ; k<4;k++) {
+					list2[k]=r.nextInt(10)+1;
 					for(int k2=0 ; k2<k ;k2++) {
 					if(list2[k]==list2[k2]) {
 						k--;
