@@ -227,7 +227,7 @@ public class View {
 					System.out.println();
 					System.out.println();
 					System.out.println();
-					System.out.println("문제"+i+4);
+					System.out.println("문제"+(i+4));
 					quiz.QuizNormal(list2[i]);
 					ans.answer_normal(list2[i]);
 					System.out.print("정답을 입력하세요 >> ");
@@ -271,7 +271,7 @@ public class View {
 					System.out.println();
 					System.out.println();
 					
-					System.out.println("문제"+i+8);
+					System.out.println("문제"+(i+8));
 					quiz.QuizHard(list[i]);
 					ans.answer_hard(list[i]);
 					System.out.print("정답을 입력하세요 >> ");
