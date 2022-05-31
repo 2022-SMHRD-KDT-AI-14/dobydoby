@@ -25,7 +25,7 @@ public class Gameover {
 			for(int i = 0; i< gameover.length(); i ++)
 			{
 				System.out.print(gameover.substring(0+i, i+1));
-				Thread.sleep(200);
+				Thread.sleep(100);
 //				mp3.play(typing);  //타이핑 소리 bgm 실행
 			}
 			System.out.println();

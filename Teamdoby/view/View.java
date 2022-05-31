@@ -4,8 +4,10 @@ import java.util.Random;
 import java.util.Scanner;
 
 import javazoom.jl.player.MP3Player;
+import model.Gameover;
 import model.PrologDAO;
 import model.RankDAO;
+import model.Round;
 import model.user_infoDAO;
 import model.user_infoDTO;
 
@@ -15,6 +17,8 @@ public class View {
 	public static void main(String[] args) {
 		RankDAO rank = new RankDAO();
 		MP3Player mp3 = new MP3Player();
+		Round round = new Round();
+		Gameover gameover = new Gameover();
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -28,7 +32,19 @@ public class View {
 		int end =0;
 		String id2=null; 
 		String name2=null;
-			while(true) {
+			
+		while(true) {
+			
+			System.out.println("  ___    _____      _    _                     _              \r\n"
+					+ " / _ \\  |_   _|    | |  | |                   (_)             \r\n"
+					+ "/ /_\\ \\   | |      | |  | |  __ _  _ __  _ __  _   ___   _ __ \r\n"
+					+ "|  _  |   | |      | |/\\| | / _` || '__|| '__|| | / _ \\ | '__|\r\n"
+					+ "| | | |  _| |_     \\  /\\  /| (_| || |   | |   | || (_) || |   \r\n"
+					+ "\\_| |_/  \\___/      \\/  \\/  \\__,_||_|   |_|   |_| \\___/ |_|   \r\n"
+					+ "                                                              ");
+			System.out.println(" ~ Team Doby ~\n");
+			
+			
 			System.out.println("[1] 로그인");
 			System.out.println();
 			System.out.println("[2] 회원가입");
@@ -86,6 +102,7 @@ public class View {
 				
 				
 				PrologDAO dao = new PrologDAO();
+				dao.real_name(name2);
 				dao.prolog();
 				break;
 			}
@@ -151,19 +168,33 @@ public class View {
 					
 			while(end!=1) {
 				
+				System.out.println();
+				System.out.println();
+				System.out.println();
+				System.out.println();
+				System.out.println();
+				
+				round.Round1();
+				
 				for (int i = 0; i < 3; i++) {
 					
+					System.out.println();
+					System.out.println();
+					System.out.println();
+					System.out.println("문제"+(i+1));
 					quiz.QuizEasy(list[i]);
 					ans.answer_easy(list[i]);
 					System.out.print("정답을 입력하세요 >> ");
 					String answer_easy = sc.next();
 					
 					if(answer_easy.equals(ans.answer_easy(list[i]))) {
+						round.Round1_O(i);
 						Score++;
 						System.out.println("현재 점수는 "+Score+"입니다");
 					}else {
+						round.Round1_X(i);
 						life--;
-						System.out.println("현재 목숨음 "+life+" 남았습니다.");
+						System.out.println("현재 목숨은 "+life+" 남았습니다.");
 						System.out.println("현재 점수는 "+Score+"입니다");
 						
 					}
@@ -171,60 +202,100 @@ public class View {
 				}
 				
 				if(life<=0) {
-					System.out.println("GAME OVER");
+					gameover.gameover();
+					
 					
 					break;
 				}
+				
+				round.Clear1();
+				
 				life = 3;
 				// 중급 악마
+				System.out.println();
+				System.out.println();
+				System.out.println();
+				System.out.println();
+				System.out.println();
+				
+				round.Round2();
 				
 				
 				
 				for (int i = 0; i < 4; i++) {
 					
+					System.out.println();
+					System.out.println();
+					System.out.println();
+					System.out.println("문제"+i+4);
 					quiz.QuizNormal(list2[i]);
 					ans.answer_normal(list2[i]);
 					System.out.print("정답을 입력하세요 >> ");
 					String answer_normal = sc.next();
 					if(answer_normal.equals(ans.answer_normal(list2[i]))) {
+						round.Round2_O(i);
 						Score++;
 						System.out.println("현재 점수는 "+Score+"입니다");
 					}else {
+						round.Round2_X(i);
 						life--;
 					System.out.println("현재 목숨음 "+life+" 남았습니다.");
 					System.out.println("현재 점수는 "+Score+"입니다");
 					}
 					if(life<=0) {
+						gameover.gameover();
 						break;
 					}
 				}
 				if(life<=0) {
-					System.out.println("GAME OVER");
+					gameover.gameover();
 					break;
 
 			}
+				round.Clear2();
+				
+				System.out.println();
+				System.out.println();
+				System.out.println();
+				System.out.println();
+				System.out.println();
+				System.out.println();
+				
+				round.Round3();
+				
 				life = 3;
 				// 고급 악마
 				for (int i = 0; i < 3; i++) {
-				
 					
-						
-						quiz.QuizHard(list[i]);
-						ans.answer_hard(list[i]);
+					System.out.println();
+					System.out.println();
+					System.out.println();
+					
+					System.out.println("문제"+i+8);
+					quiz.QuizHard(list[i]);
+					ans.answer_hard(list[i]);
 					System.out.print("정답을 입력하세요 >> ");
 					String answer_hard = sc.next();
-					if(answer_hard.equals(ans.answer_hard(list[i]))) {
+					if (answer_hard.equals(ans.answer_hard(list[i]))) {
+						round.Round3_O(i);
 						Score++;
+						System.out.println("현재 점수는 "+Score+"입니다");
+					}else {
+						round.Round3_X(i);
+						life--;
+					System.out.println("현재 목숨음 "+life+" 남았습니다.");
+					System.out.println("현재 점수는 "+Score+"입니다");
 					}
-
-				
 				
 				}
 				if(life<=0) {
-					System.out.println("GAME OVER");
-					break;
+					gameover.gameover();
+					break;}
+				
+					round.Clear3();
+					
 
-			}
+			
 				rank.score_save(Score);
 				life = 3;
 				System.out.println("순위	닉네임	아이디	점수");
