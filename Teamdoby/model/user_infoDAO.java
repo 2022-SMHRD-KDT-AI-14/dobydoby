@@ -46,7 +46,34 @@ public class user_infoDAO {
 		
 		
 	}
-	
+public String name_select(user_infoDTO dto) {
+	String result = null;
+		conn();
+		
+		
+		try {
+			String sql = "select name from user_info where id = ?and pw=?";
+			String id = dto.getId();
+			String pw = dto.getPw();
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			psmt.setString(2, pw);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				 result = rs.getString(1);
+				System.out.println(result);
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+		
+		
+		
+	}
 	public int insert(user_infoDTO dto) {
 		
 		conn();

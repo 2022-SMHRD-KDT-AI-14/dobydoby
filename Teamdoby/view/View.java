@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import javazoom.jl.player.MP3Player;
 import model.PrologDAO;
+import model.RankDAO;
 import model.user_infoDAO;
 import model.user_infoDTO;
 
@@ -12,7 +13,7 @@ import model.user_infoDTO;
 public class View {
 
 	public static void main(String[] args) {
-		
+		RankDAO rank = new RankDAO();
 		MP3Player mp3 = new MP3Player();
 		
 		Scanner sc = new Scanner(System.in);
@@ -25,8 +26,8 @@ public class View {
 		int Score=0;
 		int life =3;
 		int end =0;
-		
-		
+		String id2=null; 
+		String name2=null;
 			while(true) {
 			System.out.println("[1] 로그인");
 			System.out.println();
@@ -42,11 +43,12 @@ public class View {
 			if (menu == 1) {	// 로그인
 				while (true) {
 					System.out.print("ID >> ");
-					String id = sc.next();
+					String	id = sc.next();
 					System.out.print("PW >> ");
-					String pw = sc.next();
+					String	pw = sc.next();
 					user_infoDTO dto = new user_infoDTO(id, pw);
 					user_infoDAO dao = new user_infoDAO();
+					name2=dao.name_select(dto);
 					dao.login(dto);
 					
 					
@@ -61,7 +63,8 @@ public class View {
 				}
 				// 로그인 이후 게임 실행(프롤로그 진입)
 				// 프롤로그
-			
+				rank.id_save(id2);
+				rank.name_save(name2);
 				
 				System.out.println("Enter를 누르면 진행됩니다.");
 				sc.nextLine();
@@ -105,7 +108,7 @@ public class View {
 				
 			}
 			if(menu==3) {	// 랭킹
-				
+				rank.rank_view();
 				
 			}
 			if(menu==4) {	// 종료
@@ -219,15 +222,18 @@ public class View {
 					break;
 
 			}
+				rank.score_save(Score);
 				life = 3;
-				
+				rank.rank_save();
 				
 				if(Score>=7) {
 					System.out.println("해피 엔딩");
+					rank.rank_view();
 					break;
 					
 				}else {
 					System.out.println("베드 엔딩");
+					rank.rank_view();
 					break;
 					
 				}

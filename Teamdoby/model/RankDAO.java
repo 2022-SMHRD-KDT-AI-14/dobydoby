@@ -11,6 +11,20 @@ public class RankDAO {
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
+	int score=0;
+	String id=null;
+	String name=null;
+	
+	public void score_save(int score) {
+		this.score=score;
+	}
+	public void id_save(String id) {
+		this.id=id;
+	}
+	public void name_save(String name) {
+		this.name=name;
+	}
+	
 	
 	public void rank_view() {
 		
@@ -70,9 +84,9 @@ public void rank_save() { //rank_save 구현파트. //테스트
 		
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, a);
-			psmt.setString(2, a);
-			psmt.setInt(3, a);
+			psmt.setString(1, id);
+			psmt.setString(2, name);
+			psmt.setInt(3, score);
 			rs = psmt.executeQuery();
 			
 			

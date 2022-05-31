@@ -8,7 +8,7 @@ public class ViewTest {
 		
 		RankDAO r = new RankDAO();
 		
-		r.rank();
+		
 				
 
 	}
