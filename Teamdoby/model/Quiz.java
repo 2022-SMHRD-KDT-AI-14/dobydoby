@@ -122,7 +122,7 @@ public class Quiz {
 		}
 
 		// 3. SQL문 실행
-		String sql = "select qui from quizM where num = ?";
+		String sql = "select qui from quizL where num = ?";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, a);
@@ -189,7 +189,7 @@ public class Quiz {
 	}
 
 	// 3. SQL문 실행
-	String sql = "select qui from quizH where num = ?";
+	String sql = "select qui from quizL where num = ?";
 	try {
 		
 		psmt = conn.prepareStatement(sql);
