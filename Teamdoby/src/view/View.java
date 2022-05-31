@@ -111,9 +111,10 @@ public class View {
 			if(menu==4) {	// 종료
 				System.out.println("종료되었습니다.");
 				end++;
+				break;
 			}
 			}
-				// 문제 출력(건빈영역)
+				// 문제 출력(건빈,영역)
 				// 초급 악마
 				
 				
@@ -213,6 +214,13 @@ public class View {
 				
 				
 				}
+				if(life<=0) {
+					System.out.println("GAME OVER");
+					break;
+
+			}
+				life = 3;
+				
 				
 				if(Score>=7) {
 					System.out.println("해피 엔딩");
