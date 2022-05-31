@@ -120,7 +120,7 @@ public String answer_normal(int a) {
 	}
 
 	// 3. SQL문 실행
-	String sql = "select ans from quizL where num = ?";
+	String sql = "select ans from quizM where num = ?";
 	try {
 		psmt = conn.prepareStatement(sql);
 		psmt.setInt(1, a);
@@ -185,7 +185,7 @@ public String answer_hard(int a) {
 	}
 
 	// 3. SQL문 실행
-	String sql = "select ans from quizL where num = ?";
+	String sql = "select ans from quizH where num = ?";
 	try {
 		psmt = conn.prepareStatement(sql);
 		psmt.setInt(1, a);
