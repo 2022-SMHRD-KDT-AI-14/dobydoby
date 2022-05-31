@@ -12,11 +12,61 @@ public class RankDAO {
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
 	
-	public void rank() {
+	public void rank_view() {
 		
 		conn();
 		
 		String sql = "select * from ranking order by SCORE desc";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			
+			int i = 1;;
+			while(rs.next()) {
+				
+				String name = rs.getString(1);
+				String id = rs.getString(2);
+				String score = rs.getString(3);
+				System.out.println(i+"\t"+name+"\t"+id+"\t"+score);
+				i++;
+			}
+						
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			
+			try {
+				if (psmt != null) {
+					psmt.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+		}
+		
+		
+		
+	
+	
+		
+		
+	}
+public void rank_save() {
+		
+		conn();
+		
+		String sql = "insert * from ranking order by SCORE desc";
 		
 		try {
 			psmt = conn.prepareStatement(sql);
