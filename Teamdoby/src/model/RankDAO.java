@@ -66,21 +66,16 @@ public void rank_save() {
 		
 		conn();
 		
-		String sql = "insert * from ranking order by SCORE desc";
+		String sql = "insert into ranking values(?,?,?)";
 		
 		try {
 			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, a);
+			psmt.setString(2, a);
+			psmt.setInt(3, a);
 			rs = psmt.executeQuery();
 			
-			int i = 1;;
-			while(rs.next()) {
-				
-				String name = rs.getString(1);
-				String id = rs.getString(2);
-				String score = rs.getString(3);
-				System.out.println(i+"\t"+name+"\t"+id+"\t"+score);
-				i++;
-			}
+			
 						
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
