@@ -124,7 +124,7 @@ public void rank_save() { //rank_save 구현파트. //테스트
 	public void conn() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			System.out.println("드라이버 로딩 성공");
+			
 			
 			String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
 			String db_id = "campus_e_0516_1";
@@ -133,14 +133,14 @@ public void rank_save() { //rank_save 구현파트. //테스트
 			conn = DriverManager.getConnection(url, db_id, db_pw);
 			if(conn!=null)
 			{
-				System.out.println("DB 연결 성공");
+				
 			}
 			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
-			System.out.println("드라이버 로딩 실패");
+			
 		} catch (SQLException e) {
-			System.out.println("DB 연결 실패");
+			
 		}
 	}
 

@@ -108,7 +108,10 @@ public class View {
 				
 			}
 			if(menu==3) {	// 랭킹
+				System.out.println("순위	닉네임	아이디	점수");
+				System.out.println("----------------------------");
 				rank.rank_view();
+				System.out.println("----------------------------");
 				
 			}
 			if(menu==4) {	// 종료
@@ -224,7 +227,10 @@ public class View {
 			}
 				rank.score_save(Score);
 				life = 3;
-				rank.rank_save();
+				System.out.println("순위	닉네임	아이디	점수");
+				System.out.println("----------------------------");
+				rank.rank_view();
+				System.out.println("----------------------------");
 				
 				if(Score>=7) {
 					System.out.println("해피 엔딩");
