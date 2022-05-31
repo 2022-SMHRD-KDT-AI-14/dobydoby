@@ -62,7 +62,7 @@ public class RankDAO {
 		
 		
 	}
-public void rank_save() {
+public void rank_save() { //rank_save 구현파트. //테스트
 		
 		conn();
 		
