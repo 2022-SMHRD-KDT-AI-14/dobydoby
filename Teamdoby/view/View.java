@@ -30,6 +30,7 @@ public class View {
 		int Score=0;
 		int life =3;
 		int end =0;
+		
 		String id2=null; 
 		String name2=null;
 			
@@ -58,6 +59,7 @@ public class View {
 			
 			if (menu == 1) {	// 로그인
 				while (true) {
+					
 					System.out.print("ID >> ");
 					String	id = sc.next();
 					System.out.print("PW >> ");
@@ -75,10 +77,16 @@ public class View {
 
 					if (dao.login(dto) == 2) {
 						System.out.println("로그인 실패");
+						
+						break;
 					}
 				}
+				
 				// 로그인 이후 게임 실행(프롤로그 진입)
 				// 프롤로그
+				
+				
+				
 				rank.id_save(id2);
 				rank.name_save(name2);
 				
@@ -105,6 +113,7 @@ public class View {
 				dao.real_name(name2);
 				dao.prolog();
 				break;
+				
 			}
 			if(menu==2) {	// 회원가입
 				System.out.println("==== 회원가입 ====");
