@@ -35,6 +35,9 @@ values('smhrd2', '1234', '±Ë¿±¡÷')
 
 select * from user_info;
 select * from ranking;
+select * from bonusQuiz;
+
+delete from bonusQuiz where num=3;
 
 create table quizH(
 num number(4),
