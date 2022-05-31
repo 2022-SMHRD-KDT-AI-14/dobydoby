@@ -76,18 +76,21 @@ public class RankDAO {
 		
 		
 	}
-public void rank_save() { //rank_save 구현파트. //테스트
+public void rank_save(String name, String id, int score) { //rank_save 구현파트. //테스트
 		
 		conn();
 		
 		String sql = "insert into ranking values(?,?,?)";
+		System.out.println(name);
+		System.out.println(id);
+		System.out.println(score);
 		
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, id);
-			psmt.setString(2, name);
+			psmt.setString(1, name);
+			psmt.setString(2, id);
 			psmt.setInt(3, score);
-			rs = psmt.executeQuery();
+			int cnt = psmt.executeUpdate();
 			
 			
 						
@@ -103,9 +106,7 @@ public void rank_save() { //rank_save 구현파트. //테스트
 				if (conn != null) {
 					conn.close();
 				}
-				if (rs != null) {
-					rs.close();
-				}
+				
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

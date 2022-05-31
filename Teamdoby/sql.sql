@@ -63,5 +63,7 @@ values(5, '¹®Á¦5', '´ä5');
 
 select * from quizH;
 
+select * from ranking;
+
 
 
