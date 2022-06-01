@@ -65,5 +65,5 @@ select * from quizH;
 
 select * from ranking;
 
-
+select * from quizM;
 

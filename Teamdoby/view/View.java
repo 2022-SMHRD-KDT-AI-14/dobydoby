@@ -19,6 +19,8 @@ public class View {
 		MP3Player mp3 = new MP3Player();
 		Round round = new Round();
 		Gameover gameover = new Gameover();
+		String name = "";
+		
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -31,8 +33,9 @@ public class View {
 		int life =3;
 		int end =0;
 		
-		String id2=null; 
+		String id=null; 
 		String name2=null;
+		String pw = null;
 			
 		while(true) {
 			
@@ -61,13 +64,13 @@ public class View {
 				while (true) {
 					
 					System.out.print("ID >> ");
-					String	id = sc.next();
+					id = sc.next();
 					System.out.print("PW >> ");
-					String	pw = sc.next();
+					pw = sc.next();
 					user_infoDTO dto = new user_infoDTO(id, pw);
 					user_infoDAO dao = new user_infoDAO();
-					name2=dao.name_select(dto);
 					dao.login(dto);
+					name2 = dao.name_select(dto);
 					
 					
 					if (dao.login(dto) == 1) {
@@ -77,18 +80,17 @@ public class View {
 
 					if (dao.login(dto) == 2) {
 						System.out.println("로그인 실패");
+						System.out.println("ID와 PW를 다시 확인해주세요");
 						
-						break;
 					}
 				}
 				
 				// 로그인 이후 게임 실행(프롤로그 진입)
 				// 프롤로그
 				
+				while(true) {
 				
 				
-				rank.id_save(id2);
-				rank.name_save(name2);
 				
 				System.out.println("Enter를 누르면 진행됩니다.");
 				sc.nextLine();
@@ -118,11 +120,11 @@ public class View {
 			if(menu==2) {	// 회원가입
 				System.out.println("==== 회원가입 ====");
 				System.out.print("ID를 입력해주세요 >> ");
-				String id = sc.next();
+				id = sc.next();
 				System.out.print("PW를 입력해주세요 >> ");
-				String pw = sc.next();
+				pw = sc.next();
 				System.out.print("NickName을 입력해주세요 >>");
-				String name = sc.next();
+				name = sc.next();
 				
 				user_infoDTO dto = new user_infoDTO(id, pw, name);
 				user_infoDAO dao = new user_infoDAO();
@@ -183,7 +185,8 @@ public class View {
 				System.out.println();
 				System.out.println();
 				
-				round.Round1();
+				round.Round1(name2);
+				life = 3;
 				
 				for (int i = 0; i < 3; i++) {
 					
@@ -219,6 +222,11 @@ public class View {
 				
 				round.Clear1();
 				
+				System.out.println();
+				System.out.println("다음스테이지로 넘어갑니다. Enter를 눌러주세요!");
+				sc.nextLine();
+				sc.nextLine();
+				
 				life = 3;
 				// 중급 악마
 				System.out.println();
@@ -227,7 +235,7 @@ public class View {
 				System.out.println();
 				System.out.println();
 				
-				round.Round2();
+				round.Round2(name2);
 				
 				
 				
@@ -264,13 +272,21 @@ public class View {
 				round.Clear2();
 				
 				System.out.println();
+				System.out.println("다음스테이지로 넘어갑니다. Enter를 눌러주세요!");
+				sc.nextLine();
+				sc.nextLine();
+				
+				System.out.println();
 				System.out.println();
 				System.out.println();
 				System.out.println();
 				System.out.println();
 				System.out.println();
 				
-				round.Round3();
+				round.Round3(name2);
+				
+			
+				
 				
 				life = 3;
 				// 고급 악마
@@ -305,24 +321,48 @@ public class View {
 					
 
 			
-				rank.score_save(Score);
+				rank.rank_save(name2, id, Score);
 				life = 3;
 				System.out.println("순위	닉네임	아이디	점수");
 				System.out.println("----------------------------");
 				rank.rank_view();
 				System.out.println("----------------------------");
 				
+				try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 				if(Score>=7) {
 					System.out.println("해피 엔딩");
 					rank.rank_view();
+					
+					try {
+						Thread.sleep(10000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
 					break;
 					
 				}else {
 					System.out.println("베드 엔딩");
 					rank.rank_view();
+					
+					try {
+						Thread.sleep(5000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
 					break;
 					
 				}
+			}
 			
 				
 			}

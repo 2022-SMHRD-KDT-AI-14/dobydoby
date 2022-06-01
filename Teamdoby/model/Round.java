@@ -1,9 +1,9 @@
 package model;
 
 public class Round {
-	String name = "ㅇㅇ";
+	String name = "";
 	String story = "";
-	public void Round1() {
+	public void Round1(String name) {
 		story=
 		("[System]\r\n" + "(bgm이 바뀐다) 이때 한 손에는 망치를 든 누군가가 나타나는데\n"
 		+"[???]\r\n" + "수료증을 받고 싶으면 우선 나를 먼저 저를 이겨야 해요.\n"
@@ -99,11 +99,11 @@ public class Round {
 		}
 		
 	}
-	public void Round2() {
+	public void Round2(String name) {
 		story = ("[???]\r\n"
-				+ "자 수업 시작 합니다. 대답 슬랙에 올려주세요."
+				+ "자 수업 시작 합니다. 대답 슬랙에 올려주세요.\n"
 		+"["+name+"]\r\n"
-				+ "넹 아이스크림 사주세요!!"
+				+ "넹 아이스크림 사주세요!!\n"
 		+"[???]\r\n"
 				+ "\"......!(움찔)\""
 		+"[System] (중급)DB마왕 김동원(이)가 나타났다!!\r\n"
@@ -189,12 +189,12 @@ public class Round {
 		}
 	}
 	
-	public void Round3() {
+	public void Round3(String name) {
 		story = ("[???]\r\n"
 				+ "자바에서 오류를 발견 하면...\r\n"
-				+ "저는 아 또 내가 뭘 틀렸을까 하면서 두근 거려요."
+				+ "저는 아 또 내가 뭘 틀렸을까 하면서 두근 거려요.\n"
 				+"["+name+"]\r\n"
-				+ "제정신이 아니야...!!"
+				+ "제정신이 아니야...!!\n"
 				+"[System] (고급)자바마왕 나예호(이)가 나타났다!!\r\n"
 				+ "[System] (고급)자바마왕 나예호(이)가 내는 문제를 맞추세요.\r\n"
 				+ "목숨은 3(life)번이며 목숨을 전부 잃을 시 수료증을 얻을 수 없습니다.");

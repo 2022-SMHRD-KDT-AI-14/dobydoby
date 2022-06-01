@@ -29,7 +29,6 @@ public class user_infoDAO {
 			
 			if(rs.next()) {
 				String result = rs.getString(1);
-				System.out.println(result);
 				if(dto.getPw().equals(result)) {
 					log= 1;
 				}else {
@@ -62,7 +61,7 @@ public String name_select(user_infoDTO dto) {
 			
 			if(rs.next()) {
 				 result = rs.getString(1);
-				System.out.println(result);
+				
 				
 			}
 			
@@ -118,17 +117,14 @@ public String name_select(user_infoDTO dto) {
 	public void conn() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			System.out.println("드라이버 로딩 성공");
+			
 			
 			String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
 			String db_id = "campus_e_0516_1";
 			String db_pw = "smhrd1";
 			
 			conn = DriverManager.getConnection(url, db_id, db_pw);
-			if(conn!=null)
-			{
-				System.out.println("DB 연결 성공");
-			}
+			
 			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

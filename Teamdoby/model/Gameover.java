@@ -34,8 +34,7 @@ public class Gameover {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("다시 도전하시겠습니까 [Y/N]");
-		String re = sc.next();
+		
 		
 	}
 }
