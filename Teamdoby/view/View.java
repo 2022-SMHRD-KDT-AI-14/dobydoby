@@ -88,35 +88,7 @@ public class View {
 				// 로그인 이후 게임 실행(프롤로그 진입)
 				// 프롤로그
 				
-				while(true) {
 				
-				
-				
-				System.out.println("Enter를 누르면 진행됩니다.");
-				sc.nextLine();
-				sc.nextLine();
-				
-				System.out.println();
-				System.out.println();
-				System.out.println();
-				System.out.println();
-				System.out.println();
-				System.out.println();
-				System.out.println();
-				System.out.println();
-				System.out.println();
-				System.out.println();
-				System.out.println();
-				System.out.println();
-				System.out.println();
-				
-				
-				PrologDAO dao = new PrologDAO();
-				dao.real_name(name2);
-				dao.prolog();
-				break;
-				
-			}
 			if(menu==2) {	// 회원가입
 				System.out.println("==== 회원가입 ====");
 				System.out.print("ID를 입력해주세요 >> ");
@@ -147,6 +119,36 @@ public class View {
 				end++;
 				break;
 			}
+			}
+			
+			while(true) {
+				
+				
+				
+				System.out.println("Enter를 누르면 진행됩니다.");
+				sc.nextLine();
+				sc.nextLine();
+				
+				System.out.println();
+				System.out.println();
+				System.out.println();
+				System.out.println();
+				System.out.println();
+				System.out.println();
+				System.out.println();
+				System.out.println();
+				System.out.println();
+				System.out.println();
+				System.out.println();
+				System.out.println();
+				System.out.println();
+				
+				
+				PrologDAO dao = new PrologDAO();
+				dao.real_name(name2);
+				dao.prolog();
+				break;
+				
 			}
 				// 문제 출력(건빈,영역)
 				// 초급 악마
