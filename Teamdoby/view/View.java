@@ -5,15 +5,15 @@ import java.util.Random;
 import java.util.Scanner;
 
 import javazoom.jl.player.MP3Player;
+import model.BonusGame;
 import model.Ending;
 import model.Gameover;
+import model.MusicVO;
 import model.PrologDAO;
 import model.RankDAO;
 import model.Round;
 import model.user_infoDAO;
 import model.user_infoDTO;
-
-import model.MusicVO;
 
 
 public class View {
@@ -25,6 +25,7 @@ public class View {
 		Gameover gameover = new Gameover();
 		String name = "";
 		Ending ending = new Ending();
+		BonusGame bg = new BonusGame();
 		
 		ArrayList<MusicVO> musicList = new ArrayList<MusicVO>();
 
@@ -242,6 +243,76 @@ public class View {
 						System.out.println("현재 점수는 "+Score+"입니다");
 						
 					}
+					
+					if(bg.bonusevent()==1) {
+						String ans1 = bg.bonusQuiz();
+						System.out.print("정답을 입력하세요 >> ");
+						String input = sc.next();
+						if(ans1.equals(input)) {
+							
+							System.out.println();
+							System.out.println();
+							System.out.println();
+							System.out.println();
+							
+							String story = ("호오, 이 문제를 맞추다니 대단하군요!\n"
+							+"보너스점수는 랜덤으로 획득됩니다.(최소1~최대5)\n"
+							+"보너스점수를 얻으려면 Enter를 누르세요!");
+											
+							
+							try {
+								Thread.sleep(500);
+								for(int k = 0; k< story.length(); k ++)
+								{
+									System.out.print(story.substring(0+k, k+1));
+									Thread.sleep(10);
+//									mp3.play(typing);  //타이핑 소리 bgm 실행
+								}
+								System.out.println();
+								
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+							sc.nextLine();
+							sc.nextLine();
+															
+							int bonusscore = r.nextInt(5)+1;
+							
+							for(int k = 0; k < bonusscore; k++) {
+							story = ("보너스 점수를 획득하셨습니다.");
+							try {
+								Thread.sleep(500);
+								for(int p = 0; p< story.length(); p ++)
+								{
+									System.out.print(story.substring(0+p, p+1));
+									Thread.sleep(10);
+//									mp3.play(typing);  //타이핑 소리 bgm 실행
+								}
+								System.out.println();
+								Score++;
+							
+							}catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+							
+							}
+											
+						}
+						else {
+							System.out.println();
+							System.out.println();
+							System.out.println();
+							System.out.println();
+							System.out.println("아쉽게 틀렸군요, 센스를 좀더 기르는 노력을 하세요!");
+						}
+						System.out.println("현재 점수는 "+Score+"입니다");				
+					}
+					
+					
+					
+					
 
 				}
 				
@@ -299,6 +370,74 @@ public class View {
 						gameover.gameover();
 						break;
 					}
+					
+					if(bg.bonusevent()==1) {
+						String ans1 = bg.bonusQuiz();
+						System.out.print("정답을 입력하세요 >> ");
+						String input = sc.next();
+						if(ans1.equals(input)) {
+							
+							System.out.println();
+							System.out.println();
+							System.out.println();
+							System.out.println();
+							
+							String story = ("호오, 이 문제를 맞추다니 대단하군요!\n"
+							+"보너스점수는 랜덤으로 획득됩니다.(최소1~최대5)\n"
+							+"보너스점수를 얻으려면 Enter를 누르세요!");
+											
+							
+							try {
+								Thread.sleep(500);
+								for(int k = 0; k< story.length(); k ++)
+								{
+									System.out.print(story.substring(0+k, k+1));
+									Thread.sleep(10);
+//									mp3.play(typing);  //타이핑 소리 bgm 실행
+								}
+								System.out.println();
+								
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+							sc.nextLine();
+							sc.nextLine();
+															
+							int bonusscore = r.nextInt(5)+1;
+							
+							for(int k = 0; k < bonusscore; k++) {
+								story = ("보너스 점수를 획득하셨습니다.");
+								try {
+									Thread.sleep(500);
+									for(int p = 0; p< story.length(); p ++)
+									{
+										System.out.print(story.substring(0+p, p+1));
+										Thread.sleep(10);
+//										mp3.play(typing);  //타이핑 소리 bgm 실행
+									}
+									System.out.println();
+									Score++;
+								
+								}catch (InterruptedException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+								}
+							
+							
+											
+						}
+						else {
+							System.out.println();
+							System.out.println();
+							System.out.println();
+							System.out.println();
+							System.out.println("아쉽게 틀렸군요, 센스를 좀더 기르는 노력을 하세요!");
+						}
+						System.out.println("현재 점수는 "+Score+"입니다");				
+					}
+					
 				}
 				if(life<=0) {
 					mp3.stop();
@@ -350,6 +489,72 @@ public class View {
 					System.out.println("현재 목숨음 "+life+" 남았습니다.");
 					System.out.println("현재 점수는 "+Score+"입니다");
 					}
+					
+					if(bg.bonusevent()==1) {
+						String ans1 = bg.bonusQuiz();
+						System.out.print("정답을 입력하세요 >> ");
+						String input = sc.next();
+						if(ans1.equals(input)) {
+							
+							System.out.println();
+							System.out.println();
+							System.out.println();
+							System.out.println();
+							
+							String story = ("호오, 이 문제를 맞추다니 대단하군요!\n"
+							+"보너스점수는 랜덤으로 획득됩니다.(최소1~최대5)\n"
+							+"보너스점수를 얻으려면 Enter를 누르세요!");
+											
+							
+							try {
+								Thread.sleep(500);
+								for(int k = 0; k< story.length(); k ++)
+								{
+									System.out.print(story.substring(0+k, k+1));
+									Thread.sleep(10);
+//									mp3.play(typing);  //타이핑 소리 bgm 실행
+								}
+								System.out.println();
+								
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+							sc.nextLine();
+							sc.nextLine();
+															
+							int bonusscore = r.nextInt(5)+1;
+							
+							for(int k = 0; k < bonusscore; k++) {story = ("보너스 점수를 획득하셨습니다.");
+							try {
+								Thread.sleep(500);
+								for(int p = 0; p< story.length(); p ++)
+								{
+									System.out.print(story.substring(0+p, p+1));
+									Thread.sleep(10);
+//									mp3.play(typing);  //타이핑 소리 bgm 실행
+								}
+								System.out.println();
+								Score++;
+							
+							}catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+							}
+							
+							
+											
+						}
+						else {
+							System.out.println();
+							System.out.println();
+							System.out.println();
+							System.out.println();
+							System.out.println("아쉽게 틀렸군요, 센스를 좀더 기르는 노력을 하세요!");
+						}
+						System.out.println("현재 점수는 "+Score+"입니다");				
+					}
 				
 				}
 				if(life<=0) {
@@ -369,12 +574,9 @@ public class View {
 				rank.rank_view();
 				System.out.println("----------------------------");
 				
-				try {
-					Thread.sleep(3000);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				System.out.println("Enter를 누르면 넘어갑니다.");
+				sc.nextLine();
+				sc.nextLine();
 				
 				if(Score>=7) {
 					mp3.stop();
@@ -382,12 +584,11 @@ public class View {
 					ending.Happy_ED();
 					rank.rank_view();
 					
-					try {
-						Thread.sleep(10000);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+					System.out.println("Enter를 누르면 넘어갑니다.");
+					sc.nextLine();
+					sc.nextLine();
+					
+					
 					ending.Epilogue_Happy();
 					
 					break;
@@ -398,12 +599,10 @@ public class View {
 					ending.Bad_ED();
 					rank.rank_view();
 					
-					try {
-						Thread.sleep(5000);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+					System.out.println("Enter를 누르면 넘어갑니다.");
+					sc.nextLine();
+					sc.nextLine();
+					
 					ending.Epilogue_Bad();
 					
 					break;

@@ -230,3 +230,5 @@ select * from ranking;
 
 select * from quizM;
 
+
+select * from ranking order by SCORE desc
