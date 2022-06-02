@@ -22,7 +22,7 @@ public class Ending {
 			for(int i = 0; i< story.length(); i ++)
 			{
 				System.out.print(story.substring(0+i, i+1));
-				Thread.sleep(10);
+				Thread.sleep(50);
 //				mp3.play(typing);  //타이핑 소리 bgm 실행
 			}
 			System.out.println();
@@ -48,7 +48,7 @@ public class Ending {
 			for(int i = 0; i< story.length(); i ++)
 			{
 				System.out.print(story.substring(0+i, i+1));
-				Thread.sleep(10);
+				Thread.sleep(50);
 //				mp3.play(typing);  //타이핑 소리 bgm 실행
 			}
 			System.out.println();
@@ -74,7 +74,7 @@ public class Ending {
 			for(int i = 0; i< story.length(); i ++)
 			{
 				System.out.print(story.substring(0+i, i+1));
-				Thread.sleep(10);
+				Thread.sleep(50);
 //				mp3.play(typing);  //타이핑 소리 bgm 실행
 			}
 			System.out.println();
@@ -99,7 +99,7 @@ public class Ending {
 					for(int i = 0; i< story.length(); i ++)
 					{
 						System.out.print(story.substring(0+i, i+1));
-						Thread.sleep(10);
+						Thread.sleep(50);
 //						mp3.play(typing);  //타이핑 소리 bgm 실행
 					}
 					System.out.println();

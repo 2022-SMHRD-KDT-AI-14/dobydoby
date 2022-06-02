@@ -151,6 +151,7 @@ public class Round {
 		if(k==0) {story = ("[동원마왕]\r\n" + "주말에 공부를 하나도 안 했고만...!!");}
 		if(k==1) {story = ("[동원마왕]\r\n" + "과제 폭탄을 내줘야겠군요.");}
 		if(k==2) {story = ("[동원마왕]\r\n" + "6개월 동안 insert만 하고 싶어요?");}
+		if(k==3) {story = ("[동원마왕]\r\n" + "과제 폭탄을 내줘야겠군요.");}
 		try {
 			Thread.sleep(1000);
 			for(int i = 0; i< story.length(); i ++)
