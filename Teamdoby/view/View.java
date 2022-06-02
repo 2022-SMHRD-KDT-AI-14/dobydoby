@@ -233,6 +233,8 @@ public class View {
 				System.out.println();
 				
 				round.Round1(name2);
+				System.out.println("Enter를 눌러 진행하세요");
+				sc.nextLine();
 				life = 3;
 				
 				for (int i = 0; i < 3; i++) {
@@ -372,7 +374,8 @@ public class View {
 				System.out.println();
 				
 				round.Round2(name2);
-				
+				System.out.println("Enter를 눌러 진행하세요");
+				sc.nextLine();
 				
 				
 				for (int i = 0; i < 4; i++) {
@@ -507,7 +510,8 @@ public class View {
 				System.out.println();
 				
 				round.Round3(name2);
-				
+				System.out.println("Enter를 눌러 진행하세요");
+				sc.nextLine();
 			
 				
 				
@@ -620,6 +624,7 @@ public class View {
 					ending.Epilogue_Bad();
 					System.out.println("Enter를 누르면 종료됩니다.");
 					sc.nextLine();
+					sc.nextLine();
 					mp3.stop();
 					
 					break;}
@@ -642,7 +647,6 @@ public class View {
 					ending.Happy_ED();
 					
 					System.out.println("Enter를 누르면 넘어갑니다.");
-					sc.nextLine();
 					sc.nextLine();
 					
 					
