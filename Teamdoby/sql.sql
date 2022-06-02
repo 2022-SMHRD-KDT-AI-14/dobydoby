@@ -231,4 +231,4 @@ select * from ranking;
 select * from quizM;
 
 
-select * from ranking order by SCORE desc
+select * from ranking order by SCORE+0 desc
