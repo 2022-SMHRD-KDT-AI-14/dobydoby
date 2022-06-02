@@ -1,5 +1,6 @@
 package view;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -12,6 +13,8 @@ import model.Round;
 import model.user_infoDAO;
 import model.user_infoDTO;
 
+import model.MusicVO;
+
 
 public class View {
 
@@ -22,6 +25,23 @@ public class View {
 		Gameover gameover = new Gameover();
 		String name = "";
 		Ending ending = new Ending();
+		
+		ArrayList<MusicVO> musicList = new ArrayList<MusicVO>();
+
+		String path = "C:/Users/smhrd/Desktop/mp3/music/";
+		musicList.add(0,new MusicVO(path+"로그인화면.mp3")); //0
+		musicList.add(1,new MusicVO(path+"프롤로그.mp3")); //1
+		musicList.add(2,new MusicVO(path+"초급.mp3")); //2
+		musicList.add(3,new MusicVO(path+"중급.mp3")); //3
+		musicList.add(4,new MusicVO(path+"고급.mp3")); //4
+		musicList.add(5,new MusicVO(path+"해피엔딩.mp3")); //5
+		musicList.add(6,new MusicVO(path+"베드엔딩.mp3")); //6
+		musicList.add(7,new MusicVO(path+"게임오버.mp3")); //7
+		
+		mp3.play(musicList.get(0).getPath());
+		mp3.stop();
+		
+		
 		
 		
 		Scanner sc = new Scanner(System.in);
@@ -40,7 +60,8 @@ public class View {
 		String pw = null;
 			
 		while(true) {
-			
+			mp3.stop();
+			mp3.play(musicList.get(0).getPath());
 			System.out.println("  ___    _____      _    _                     _              \r\n"
 					+ " / _ \\  |_   _|    | |  | |                   (_)             \r\n"
 					+ "/ /_\\ \\   | |      | |  | |  __ _  _ __  _ __  _   ___   _ __ \r\n"
@@ -130,8 +151,8 @@ public class View {
 			
 		
 			while(true) {
-				
-				
+				mp3.stop();
+				mp3.play(musicList.get(1).getPath());
 				
 				System.out.println("Enter를 누르면 진행됩니다.");
 				sc.nextLine();
@@ -188,7 +209,8 @@ public class View {
 					
 					
 			while(end!=1) {
-				
+				mp3.stop();
+				mp3.play(musicList.get(2).getPath());
 				System.out.println();
 				System.out.println();
 				System.out.println();
@@ -224,6 +246,8 @@ public class View {
 				}
 				
 				if(life<=0) {
+					mp3.stop();
+					mp3.play(musicList.get(7).getPath());
 					gameover.gameover();
 					
 					
@@ -239,6 +263,8 @@ public class View {
 				
 				life = 3;
 				// 중급 악마
+				mp3.stop();
+				mp3.play(musicList.get(3).getPath());
 				System.out.println();
 				System.out.println();
 				System.out.println();
@@ -275,6 +301,8 @@ public class View {
 					}
 				}
 				if(life<=0) {
+					mp3.stop();
+					mp3.play(musicList.get(7).getPath());
 					gameover.gameover();
 					break;
 
@@ -285,7 +313,8 @@ public class View {
 				System.out.println("다음스테이지로 넘어갑니다. Enter를 눌러주세요!");
 				sc.nextLine();
 				sc.nextLine();
-				
+				mp3.stop();
+				mp3.play(musicList.get(4).getPath());
 				System.out.println();
 				System.out.println();
 				System.out.println();
@@ -324,6 +353,8 @@ public class View {
 				
 				}
 				if(life<=0) {
+					mp3.stop();
+					mp3.play(musicList.get(7).getPath());
 					gameover.gameover();
 					break;}
 				
@@ -346,7 +377,8 @@ public class View {
 				}
 				
 				if(Score>=7) {
-					
+					mp3.stop();
+					mp3.play(musicList.get(5).getPath());
 					ending.Happy_ED();
 					rank.rank_view();
 					
@@ -361,7 +393,8 @@ public class View {
 					break;
 					
 				}else {
-					
+					mp3.stop();
+					mp3.play(musicList.get(6).getPath());
 					ending.Bad_ED();
 					rank.rank_view();
 					
