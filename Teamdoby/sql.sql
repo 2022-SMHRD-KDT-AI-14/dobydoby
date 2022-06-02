@@ -14,6 +14,7 @@ CONSTRAINT quizL_qui_uk UNIQUE(qui),
 CONSTRAINT quizL_ans_uk UNIQUE(ans)
 );
 
+<<<<<<< HEAD
 CREATE TABLE quizM(
 num VARCHAR2(4), 
 qui VARCHAR2(500) NOT NULL, 
@@ -21,6 +22,25 @@ ans VARCHAR2(50) NOT NULL,
 CONSTRAINT quizM_num_pk PRIMARY KEY(num),
 CONSTRAINT quizM_qui_uk UNIQUE(qui),
 CONSTRAINT quizM_ans_uk UNIQUE(ans)
+=======
+insert into ranking
+values('±è°Çºó', 'smhrd1', '80');
+
+insert into user_info
+values('smhrd2', '1234', '±èÀ±ÁÖ')
+
+select * from user_info;
+select * from ranking;
+select * from bonusQuiz;
+
+delete from bonusQuiz where num=3;
+
+create table quizH(
+num number(4),
+qui varchar2(500),
+ans varchar2(50),
+constraint quizH_num_pk primary key(num)
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-AI-14/dobydoby.git
 );
 
 
@@ -203,5 +223,7 @@ where ans = 'System.out.println';
 
 
 
+select * from ranking;
 
+select * from quizM;
 
