@@ -26,6 +26,7 @@ public class View {
 		String name = "";
 		Ending ending = new Ending();
 		BonusGame bg = new BonusGame();
+		int menu = 0;
 		
 		ArrayList<MusicVO> musicList = new ArrayList<MusicVO>();
 
@@ -60,6 +61,8 @@ public class View {
 		String name2=null;
 		String pw = null;
 			
+		
+		while(true) {
 		while(true) {
 			mp3.stop();
 			mp3.play(musicList.get(0).getPath());
@@ -82,7 +85,7 @@ public class View {
 			System.out.println("[4] 종료");
 			System.out.println();
 			System.out.print(">> ");
-			int menu = sc.nextInt();
+			menu = sc.nextInt();
 			
 			if (menu==1) {	// 로그인
 				while (true) {
@@ -128,6 +131,9 @@ public class View {
 				cnt = dao.insert(dto);
 				if(cnt>0) {
 					System.out.println("회원가입에 성공하셨습니다.");
+					System.out.println("Enter를 눌러주세요");
+					sc.nextLine();
+					sc.nextLine();
 				}
 				
 				
@@ -138,6 +144,10 @@ public class View {
 				rank.rank_view();
 				System.out.println("----------------------------");
 				
+				System.out.println("메인화면으로 가시려면 Enter를 눌러주세요");
+				sc.nextLine();
+				sc.nextLine();
+				
 			}
 			if(menu==4) {	// 종료
 				System.out.println("종료되었습니다.");
@@ -147,7 +157,10 @@ public class View {
 			if(menu==1) {
 				break;
 			}
+			
 			}
+			if(menu==4) break;
+			
 			
 			
 		
@@ -239,7 +252,7 @@ public class View {
 						System.out.println("현재 점수는 "+Score+"입니다");
 					}else {
 						round.Round1_X(i);
-life--;
+						life--;
 						System.out.println("현재 목숨은 "+life+" 남았습니다.");
 						System.out.println("현재 점수는 "+Score+"입니다");
 						
@@ -259,7 +272,7 @@ life--;
 							System.out.println();
 							System.out.println();
 							
-							String story = ("다음 간식은 뭘로할까요?\n"
+							String story = ("다음 간식은 뭘로할까요?\n\n\n\n"
 							+"보너스점수는 랜덤으로 획득됩니다.(최소1~최대5)\n"
 							+"보너스점수를 얻으려면 Enter를 누르세요!");
 											
@@ -336,7 +349,6 @@ life--;
 					ending.Epilogue_Bad();
 					System.out.println("Enter를 누르면 종료됩니다.");
 					sc.nextLine();
-					sc.nextLine();
 					mp3.stop();
 					
 					break;
@@ -402,7 +414,7 @@ life--;
 							System.out.println();
 							System.out.println();
 							
-							String story = ("다음 간식은 뭘로할까요?\n"
+							String story = ("다음 간식은 뭘로할까요?\n\n\n\n"
 							+"보너스점수는 랜덤으로 획득됩니다.(최소1~최대5)\n"
 							+"보너스점수를 얻으려면 Enter를 누르세요!");
 											
@@ -474,7 +486,6 @@ life--;
 					ending.Epilogue_Bad();
 					System.out.println("Enter를 누르면 종료됩니다.");
 					sc.nextLine();
-					sc.nextLine();
 					mp3.stop();
 					
 					break;
@@ -538,7 +549,7 @@ life--;
 							System.out.println();
 							System.out.println();
 							
-							String story = ("다음 간식은 뭘로할까요?\n"
+							String story = ("다음 간식은 뭘로할까요?\n\n\n\n"
 							+"보너스점수는 랜덤으로 획득됩니다.(최소1~최대5)\n"
 							+"보너스점수를 얻으려면 Enter를 누르세요!");
 											
@@ -605,11 +616,9 @@ life--;
 					
 					System.out.println("Enter를 누르면 넘어갑니다.");
 					sc.nextLine();
-					sc.nextLine();
 					
 					ending.Epilogue_Bad();
 					System.out.println("Enter를 누르면 종료됩니다.");
-					sc.nextLine();
 					sc.nextLine();
 					mp3.stop();
 					
@@ -644,7 +653,6 @@ life--;
 					System.out.println("----------------------------");
 					System.out.println("Enter를 누르면 종료됩니다.");
 					sc.nextLine();
-					sc.nextLine();
 					mp3.stop();
 					break;
 					
@@ -656,12 +664,11 @@ life--;
 					
 					System.out.println("Enter를 누르면 넘어갑니다.");
 					sc.nextLine();
-					sc.nextLine();
 					
 					ending.Epilogue_Bad();
 					System.out.println("Enter를 누르면 종료됩니다.");
 					sc.nextLine();
-					sc.nextLine();
+
 					mp3.stop();
 					
 					break;
@@ -674,7 +681,7 @@ life--;
 			
 				
 			
-				
+	}
 				
 				
 				

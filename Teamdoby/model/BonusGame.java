@@ -24,6 +24,9 @@ public class BonusGame {
 		
 		int bonus = r.nextInt(3)+1;
 		if(bonus==3) {
+			System.out.println();
+			System.out.println();
+			System.out.println();
 			System.out.println("[이벤트] 보너스 게임 발동!!");
 			eventresult = 1;
 		}else eventresult = 2;
