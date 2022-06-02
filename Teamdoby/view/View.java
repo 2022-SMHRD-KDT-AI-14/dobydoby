@@ -134,6 +134,12 @@ public class View {
 					System.out.println("Enter를 눌러주세요");
 					sc.nextLine();
 					sc.nextLine();
+				}else
+				{
+					System.out.println("다른 아이디로 만들어주세요");
+					System.out.println("Enter를 눌러주세요");
+					sc.nextLine();
+					sc.nextLine();
 				}
 				
 				

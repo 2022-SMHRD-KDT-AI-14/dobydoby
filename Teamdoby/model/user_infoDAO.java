@@ -92,7 +92,7 @@ public String name_select(user_infoDTO dto) {
 			cnt = psmt.executeUpdate();
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println("ID가 중복되었습니다.");
 		} 
 		finally {
 			
