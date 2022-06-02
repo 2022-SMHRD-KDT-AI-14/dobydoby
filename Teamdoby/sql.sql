@@ -207,7 +207,9 @@ update quizH
 set qui = 'model,view,controller'
 where ans = 'System.out.println';
 
+select * from user_info;
 
+delete from ranking;
 
 
 

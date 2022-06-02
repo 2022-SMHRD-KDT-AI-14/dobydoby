@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 import javazoom.jl.player.MP3Player;
+import model.Ending;
 import model.Gameover;
 import model.PrologDAO;
 import model.RankDAO;
@@ -20,6 +21,7 @@ public class View {
 		Round round = new Round();
 		Gameover gameover = new Gameover();
 		String name = "";
+		Ending ending = new Ending();
 		
 		
 		Scanner sc = new Scanner(System.in);
@@ -60,7 +62,7 @@ public class View {
 			System.out.print(">> ");
 			int menu = sc.nextInt();
 			
-			if (menu == 1) {	// 로그인
+			if (menu==1) {	// 로그인
 				while (true) {
 					
 					System.out.print("ID >> ");
@@ -81,7 +83,8 @@ public class View {
 					if (dao.login(dto) == 2) {
 						System.out.println("로그인 실패");
 						System.out.println("ID와 PW를 다시 확인해주세요");
-						
+					
+					}
 					}
 				}
 				
@@ -119,8 +122,13 @@ public class View {
 				end++;
 				break;
 			}
+			if(menu==1) {
+				break;
+			}
 			}
 			
+			
+		
 			while(true) {
 				
 				
@@ -338,7 +346,8 @@ public class View {
 				}
 				
 				if(Score>=7) {
-					System.out.println("해피 엔딩");
+					
+					ending.Happy_ED();
 					rank.rank_view();
 					
 					try {
@@ -347,11 +356,13 @@ public class View {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
+					ending.Epilogue_Happy();
 					
 					break;
 					
 				}else {
-					System.out.println("베드 엔딩");
+					
+					ending.Bad_ED();
 					rank.rank_view();
 					
 					try {
@@ -360,6 +371,7 @@ public class View {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
+					ending.Epilogue_Bad();
 					
 					break;
 					
@@ -382,7 +394,6 @@ public class View {
 		}
 		
 	
-}
 
 
 
