@@ -207,12 +207,15 @@ update quizH
 set qui = 'model,view,controller'
 where ans = 'System.out.println';
 
+select * from user_info;
+
+delete from ranking;
 
 
+select * from bonusQuiz;
 
-
-
-
+insert into ranking
+values('±è±¤Çö', 'smhrd', 12);
 
 
 
@@ -227,3 +230,5 @@ select * from ranking;
 
 select * from quizM;
 
+
+select * from ranking order by SCORE+0 desc

@@ -30,7 +30,7 @@ public class RankDAO {
 		
 		conn();
 		
-		String sql = "select * from ranking order by SCORE desc";
+		String sql = "select * from ranking order by SCORE+0 desc";
 		
 		try {
 			psmt = conn.prepareStatement(sql);
