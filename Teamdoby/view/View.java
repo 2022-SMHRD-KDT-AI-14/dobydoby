@@ -38,7 +38,7 @@ public class View {
 		musicList.add(5,new MusicVO(path+"해피엔딩.mp3")); //5
 		musicList.add(6,new MusicVO(path+"베드엔딩.mp3")); //6
 		musicList.add(7,new MusicVO(path+"게임오버.mp3")); //7
-		
+		musicList.add(8,new MusicVO(path+"아기천사용현썜.mp3")); //8
 		mp3.play(musicList.get(0).getPath());
 		mp3.stop();
 		
@@ -176,6 +176,7 @@ public class View {
 				
 				PrologDAO dao = new PrologDAO();
 				dao.real_name(name2);
+				ending.real_name(name2);
 				dao.prolog();
 				break;
 				
@@ -238,13 +239,16 @@ public class View {
 						System.out.println("현재 점수는 "+Score+"입니다");
 					}else {
 						round.Round1_X(i);
-						life--;
+
 						System.out.println("현재 목숨은 "+life+" 남았습니다.");
 						System.out.println("현재 점수는 "+Score+"입니다");
 						
 					}
 					
-					if(bg.bonusevent()==1) {
+					if(bg.bonusevent()==1&&life>0) {
+						mp3.stop();
+						mp3.play(musicList.get(8).getPath());
+						System.out.println("용현(자바요정) : 여러분! 간식드세요~");
 						String ans1 = bg.bonusQuiz();
 						System.out.print("정답을 입력하세요 >> ");
 						String input = sc.next();
@@ -255,7 +259,7 @@ public class View {
 							System.out.println();
 							System.out.println();
 							
-							String story = ("호오, 이 문제를 맞추다니 대단하군요!\n"
+							String story = ("다음 간식은 뭘로할까요?\n"
 							+"보너스점수는 랜덤으로 획득됩니다.(최소1~최대5)\n"
 							+"보너스점수를 얻으려면 Enter를 누르세요!");
 											
@@ -291,6 +295,7 @@ public class View {
 								}
 								System.out.println();
 								Score++;
+								life++;
 							
 							}catch (InterruptedException e) {
 								// TODO Auto-generated catch block
@@ -305,9 +310,11 @@ public class View {
 							System.out.println();
 							System.out.println();
 							System.out.println();
-							System.out.println("아쉽게 틀렸군요, 센스를 좀더 기르는 노력을 하세요!");
+							System.out.println("다음엔 다른 간식으로 준비할게요...");
 						}
-						System.out.println("현재 점수는 "+Score+"입니다");				
+						System.out.println("현재 점수는 "+Score+"입니다");
+						mp3.stop();
+						mp3.play(musicList.get(2).getPath());
 					}
 					
 					
@@ -319,7 +326,8 @@ public class View {
 				if(life<=0) {
 					mp3.stop();
 					mp3.play(musicList.get(7).getPath());
-					gameover.gameover();
+					ending.Bad_ED();
+					ending.Epilogue_Bad();
 					
 					
 					break;
@@ -371,7 +379,10 @@ public class View {
 						break;
 					}
 					
-					if(bg.bonusevent()==1) {
+					if(bg.bonusevent()==1&&life>0) {
+						mp3.stop();
+						mp3.play(musicList.get(8).getPath());
+						System.out.println("용현(자바요정) : 여러분! 간식드세요~");
 						String ans1 = bg.bonusQuiz();
 						System.out.print("정답을 입력하세요 >> ");
 						String input = sc.next();
@@ -382,7 +393,7 @@ public class View {
 							System.out.println();
 							System.out.println();
 							
-							String story = ("호오, 이 문제를 맞추다니 대단하군요!\n"
+							String story = ("다음 간식은 뭘로할까요?\n"
 							+"보너스점수는 랜덤으로 획득됩니다.(최소1~최대5)\n"
 							+"보너스점수를 얻으려면 Enter를 누르세요!");
 											
@@ -407,25 +418,25 @@ public class View {
 							int bonusscore = r.nextInt(5)+1;
 							
 							for(int k = 0; k < bonusscore; k++) {
-								story = ("보너스 점수를 획득하셨습니다.");
-								try {
-									Thread.sleep(500);
-									for(int p = 0; p< story.length(); p ++)
-									{
-										System.out.print(story.substring(0+p, p+1));
-										Thread.sleep(10);
-//										mp3.play(typing);  //타이핑 소리 bgm 실행
-									}
-									System.out.println();
-									Score++;
-								
-								}catch (InterruptedException e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
+							story = ("보너스 점수를 획득하셨습니다.");
+							try {
+								Thread.sleep(500);
+								for(int p = 0; p< story.length(); p ++)
+								{
+									System.out.print(story.substring(0+p, p+1));
+									Thread.sleep(10);
+//									mp3.play(typing);  //타이핑 소리 bgm 실행
 								}
-								}
+								System.out.println();
+								Score++;
+								life++;
 							
+							}catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 							
+							}
 											
 						}
 						else {
@@ -433,16 +444,19 @@ public class View {
 							System.out.println();
 							System.out.println();
 							System.out.println();
-							System.out.println("아쉽게 틀렸군요, 센스를 좀더 기르는 노력을 하세요!");
+							System.out.println("다음엔 다른 간식으로 준비할게요...");
 						}
-						System.out.println("현재 점수는 "+Score+"입니다");				
+						System.out.println("현재 점수는 "+Score+"입니다");
+						mp3.stop();
+						mp3.play(musicList.get(3).getPath());
 					}
 					
 				}
 				if(life<=0) {
 					mp3.stop();
 					mp3.play(musicList.get(7).getPath());
-					gameover.gameover();
+					ending.Bad_ED();
+					ending.Epilogue_Bad();
 					break;
 
 			}
@@ -490,7 +504,10 @@ public class View {
 					System.out.println("현재 점수는 "+Score+"입니다");
 					}
 					
-					if(bg.bonusevent()==1) {
+					if(bg.bonusevent()==1&&life>0) {
+						mp3.stop();
+						mp3.play(musicList.get(8).getPath());
+						System.out.println("용현(자바요정) : 여러분! 간식드세요~");
 						String ans1 = bg.bonusQuiz();
 						System.out.print("정답을 입력하세요 >> ");
 						String input = sc.next();
@@ -501,7 +518,7 @@ public class View {
 							System.out.println();
 							System.out.println();
 							
-							String story = ("호오, 이 문제를 맞추다니 대단하군요!\n"
+							String story = ("다음 간식은 뭘로할까요?\n"
 							+"보너스점수는 랜덤으로 획득됩니다.(최소1~최대5)\n"
 							+"보너스점수를 얻으려면 Enter를 누르세요!");
 											
@@ -525,7 +542,8 @@ public class View {
 															
 							int bonusscore = r.nextInt(5)+1;
 							
-							for(int k = 0; k < bonusscore; k++) {story = ("보너스 점수를 획득하셨습니다.");
+							for(int k = 0; k < bonusscore; k++) {
+							story = ("보너스 점수를 획득하셨습니다.");
 							try {
 								Thread.sleep(500);
 								for(int p = 0; p< story.length(); p ++)
@@ -536,14 +554,14 @@ public class View {
 								}
 								System.out.println();
 								Score++;
+								life++;
 							
 							}catch (InterruptedException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
+							
 							}
-							
-							
 											
 						}
 						else {
@@ -551,38 +569,37 @@ public class View {
 							System.out.println();
 							System.out.println();
 							System.out.println();
-							System.out.println("아쉽게 틀렸군요, 센스를 좀더 기르는 노력을 하세요!");
+							System.out.println("다음엔 다른 간식으로 준비할게요...");
 						}
-						System.out.println("현재 점수는 "+Score+"입니다");				
+						System.out.println("현재 점수는 "+Score+"입니다");
+						mp3.stop();
+						mp3.play(musicList.get(4).getPath());
 					}
 				
 				}
 				if(life<=0) {
 					mp3.stop();
 					mp3.play(musicList.get(7).getPath());
-					gameover.gameover();
+					ending.Bad_ED();
+					ending.Epilogue_Bad();
 					break;}
 				
 					round.Clear3();
 					
 
-			
-				rank.rank_save(name2, id, Score);
+
 				life = 3;
-				System.out.println("순위	닉네임	아이디	점수");
-				System.out.println("----------------------------");
-				rank.rank_view();
-				System.out.println("----------------------------");
+			
 				
 				System.out.println("Enter를 누르면 넘어갑니다.");
 				sc.nextLine();
 				sc.nextLine();
 				
 				if(Score>=7) {
+					rank.rank_save(name2, id, Score);
 					mp3.stop();
 					mp3.play(musicList.get(5).getPath());
 					ending.Happy_ED();
-					rank.rank_view();
 					
 					System.out.println("Enter를 누르면 넘어갑니다.");
 					sc.nextLine();
@@ -590,6 +607,10 @@ public class View {
 					
 					
 					ending.Epilogue_Happy();
+					System.out.println("순위	닉네임	아이디	점수");
+					System.out.println("----------------------------");
+					rank.rank_view();
+					System.out.println("----------------------------");
 					
 					break;
 					
@@ -597,7 +618,7 @@ public class View {
 					mp3.stop();
 					mp3.play(musicList.get(6).getPath());
 					ending.Bad_ED();
-					rank.rank_view();
+					
 					
 					System.out.println("Enter를 누르면 넘어갑니다.");
 					sc.nextLine();
