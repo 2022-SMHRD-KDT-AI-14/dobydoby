@@ -80,7 +80,7 @@ public class Round {
 	}
 	
 	public void Clear1() {
-		story = ("[System] 라운드1 클리어!!"
+		story = ("[System] 라운드1 클리어!!\n"
 		+"[수현마왕]\r\n" + "여러분 수고하셨어요.\r\n"
 				+ "점심 맛있게 드세요~");
 		try {
@@ -169,7 +169,7 @@ public class Round {
 		
 	}
 	public void Clear2() {
-		story = ("[System] 라운드2 클리어!!"
+		story = ("[System] 라운드2 클리어!!\n"
 		+"[동원마왕]\r\n" + "자 이제 어려운 문제는 끝났습니다.\r\n"
 				+ "다음 분은 더 쉽습니다.\r\n"
 				+ "자 저를 한 번만 믿어보세요.");
@@ -254,7 +254,7 @@ public class Round {
 	}
 	
 	public void Clear3() {
-		story = ("[System] 라운드3 클리어!!"
+		story = ("[System] 라운드3 클리어!!\n"
 				+ "[예호마왕]\r\n"
 				+ "아이 자바 재밌다~\r\n"
 				+ "아이 JDBC 재밌다~\r\n"

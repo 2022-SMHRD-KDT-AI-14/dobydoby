@@ -165,7 +165,11 @@ public class View {
 			}
 			
 			}
-			if(menu==4) break;
+			if(menu==4) {
+					break;
+				
+			}
+			
 			
 			
 			
