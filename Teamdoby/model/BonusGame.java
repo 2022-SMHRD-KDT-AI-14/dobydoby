@@ -22,7 +22,7 @@ public class BonusGame {
 	
 	public int bonusevent() {
 		
-		int bonus = r.nextInt(3)+1;
+		int bonus = r.nextInt(5)+1;
 		if(bonus==3) {
 			System.out.println();
 			System.out.println();

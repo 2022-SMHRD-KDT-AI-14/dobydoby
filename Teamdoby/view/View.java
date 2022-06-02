@@ -284,7 +284,7 @@ public class View {
 								for(int k = 0; k< story.length(); k ++)
 								{
 									System.out.print(story.substring(0+k, k+1));
-									Thread.sleep(10);
+									Thread.sleep(50);
 //									mp3.play(typing);  //타이핑 소리 bgm 실행
 								}
 								System.out.println();
@@ -305,7 +305,7 @@ public class View {
 								for(int p = 0; p< story.length(); p ++)
 								{
 									System.out.print(story.substring(0+p, p+1));
-									Thread.sleep(10);
+									Thread.sleep(50);
 //									mp3.play(typing);  //타이핑 소리 bgm 실행
 								}
 								System.out.println();
@@ -427,7 +427,7 @@ public class View {
 								for(int k = 0; k< story.length(); k ++)
 								{
 									System.out.print(story.substring(0+k, k+1));
-									Thread.sleep(10);
+									Thread.sleep(50);
 //									mp3.play(typing);  //타이핑 소리 bgm 실행
 								}
 								System.out.println();
@@ -448,7 +448,7 @@ public class View {
 								for(int p = 0; p< story.length(); p ++)
 								{
 									System.out.print(story.substring(0+p, p+1));
-									Thread.sleep(10);
+									Thread.sleep(50);
 //									mp3.play(typing);  //타이핑 소리 bgm 실행
 								}
 								System.out.println();
@@ -563,7 +563,7 @@ public class View {
 								for(int k = 0; k< story.length(); k ++)
 								{
 									System.out.print(story.substring(0+k, k+1));
-									Thread.sleep(10);
+									Thread.sleep(50);
 //									mp3.play(typing);  //타이핑 소리 bgm 실행
 								}
 								System.out.println();
@@ -584,7 +584,7 @@ public class View {
 								for(int p = 0; p< story.length(); p ++)
 								{
 									System.out.print(story.substring(0+p, p+1));
-									Thread.sleep(10);
+									Thread.sleep(50);
 //									mp3.play(typing);  //타이핑 소리 bgm 실행
 								}
 								System.out.println();
