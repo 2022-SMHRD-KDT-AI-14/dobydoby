@@ -239,7 +239,7 @@ public class View {
 						System.out.println("현재 점수는 "+Score+"입니다");
 					}else {
 						round.Round1_X(i);
-
+life--;
 						System.out.println("현재 목숨은 "+life+" 남았습니다.");
 						System.out.println("현재 점수는 "+Score+"입니다");
 						
@@ -295,7 +295,7 @@ public class View {
 								}
 								System.out.println();
 								Score++;
-								life++;
+								
 							
 							}catch (InterruptedException e) {
 								// TODO Auto-generated catch block
@@ -325,10 +325,19 @@ public class View {
 				
 				if(life<=0) {
 					mp3.stop();
-					mp3.play(musicList.get(7).getPath());
+					mp3.play(musicList.get(6).getPath());
 					ending.Bad_ED();
-					ending.Epilogue_Bad();
 					
+					
+					System.out.println("Enter를 누르면 넘어갑니다.");
+					sc.nextLine();
+					sc.nextLine();
+					
+					ending.Epilogue_Bad();
+					System.out.println("Enter를 누르면 종료됩니다.");
+					sc.nextLine();
+					sc.nextLine();
+					mp3.stop();
 					
 					break;
 				}
@@ -429,7 +438,7 @@ public class View {
 								}
 								System.out.println();
 								Score++;
-								life++;
+								
 							
 							}catch (InterruptedException e) {
 								// TODO Auto-generated catch block
@@ -454,9 +463,20 @@ public class View {
 				}
 				if(life<=0) {
 					mp3.stop();
-					mp3.play(musicList.get(7).getPath());
+					mp3.play(musicList.get(6).getPath());
 					ending.Bad_ED();
+					
+					
+					System.out.println("Enter를 누르면 넘어갑니다.");
+					sc.nextLine();
+					sc.nextLine();
+					
 					ending.Epilogue_Bad();
+					System.out.println("Enter를 누르면 종료됩니다.");
+					sc.nextLine();
+					sc.nextLine();
+					mp3.stop();
+					
 					break;
 
 			}
@@ -554,7 +574,7 @@ public class View {
 								}
 								System.out.println();
 								Score++;
-								life++;
+								
 							
 							}catch (InterruptedException e) {
 								// TODO Auto-generated catch block
@@ -579,9 +599,20 @@ public class View {
 				}
 				if(life<=0) {
 					mp3.stop();
-					mp3.play(musicList.get(7).getPath());
+					mp3.play(musicList.get(6).getPath());
 					ending.Bad_ED();
+					
+					
+					System.out.println("Enter를 누르면 넘어갑니다.");
+					sc.nextLine();
+					sc.nextLine();
+					
 					ending.Epilogue_Bad();
+					System.out.println("Enter를 누르면 종료됩니다.");
+					sc.nextLine();
+					sc.nextLine();
+					mp3.stop();
+					
 					break;}
 				
 					round.Clear3();
@@ -611,7 +642,10 @@ public class View {
 					System.out.println("----------------------------");
 					rank.rank_view();
 					System.out.println("----------------------------");
-					
+					System.out.println("Enter를 누르면 종료됩니다.");
+					sc.nextLine();
+					sc.nextLine();
+					mp3.stop();
 					break;
 					
 				}else {
@@ -625,6 +659,10 @@ public class View {
 					sc.nextLine();
 					
 					ending.Epilogue_Bad();
+					System.out.println("Enter를 누르면 종료됩니다.");
+					sc.nextLine();
+					sc.nextLine();
+					mp3.stop();
 					
 					break;
 					
