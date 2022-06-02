@@ -22,8 +22,8 @@ public class BonusGame {
 	
 	public int bonusevent() {
 		
-		int bonus = r.nextInt(5)+1;
-		if(bonus==5) {
+		int bonus = r.nextInt(3)+1;
+		if(bonus==3) {
 			System.out.println("[이벤트] 보너스 게임 발동!!");
 			eventresult = 1;
 		}else eventresult = 2;
@@ -132,7 +132,7 @@ public class BonusGame {
 		String sql = "select qui from bonusQuiz where num = ?";
 		
 		
-		int a = r.nextInt(3)+1;
+		int a = r.nextInt(8)+1;
 		
 		try {
 			psmt = conn.prepareStatement(sql);

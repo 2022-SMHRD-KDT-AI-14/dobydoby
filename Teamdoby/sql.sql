@@ -212,9 +212,10 @@ select * from user_info;
 delete from ranking;
 
 
+select * from bonusQuiz;
 
-
-
+insert into ranking
+values('±è±¤Çö', 'smhrd', 12);
 
 
 
