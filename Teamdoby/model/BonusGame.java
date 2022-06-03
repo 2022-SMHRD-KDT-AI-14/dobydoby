@@ -27,7 +27,23 @@ public class BonusGame {
 			System.out.println();
 			System.out.println();
 			System.out.println();
-			System.out.println("[이벤트] 보너스 게임 발동!!");
+			String story = ("[이벤트] 보너스 게임 발동!!");
+			
+			try {
+				Thread.sleep(1000);
+				for(int i = 0; i< story.length(); i ++)
+				{
+					System.out.print(story.substring(0+i, i+1));
+					Thread.sleep(50);
+//					mp3.play(typing);  //타이핑 소리 bgm 실행
+				}
+				System.out.println();
+				
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 			eventresult = 1;
 		}else eventresult = 2;
 		return eventresult;

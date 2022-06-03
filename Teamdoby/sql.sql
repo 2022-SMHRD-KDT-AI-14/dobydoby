@@ -211,6 +211,7 @@ select * from user_info;
 
 delete from ranking;
 
+delete from user_info;
 
 select * from bonusQuiz;
 
@@ -221,8 +222,7 @@ values('±è±¤Çö', 'smhrd', 12);
 
 
 
-
-
+select * from user_info;
 
 
 
