@@ -15,7 +15,8 @@ import model.Round;
 import model.user_infoDAO;
 import model.user_infoDTO;
 
-
+// .\\ : 최상위 경로로 가기
+// .\\music\\음악.mp3
 public class View {
 
 	public static void main(String[] args) {
@@ -29,8 +30,10 @@ public class View {
 		int menu = 0;
 		
 		ArrayList<MusicVO> musicList = new ArrayList<MusicVO>();
-
-		String path = "C:/Users/smhrd/Desktop/mp3/music/";
+		
+		
+//		String path = "C:/Users/smhrd/Desktop/mp3/music/";
+		String path = ".\\music/";
 		musicList.add(0,new MusicVO(path+"로그인화면.mp3")); //0
 		musicList.add(1,new MusicVO(path+"프롤로그.mp3")); //1
 		musicList.add(2,new MusicVO(path+"초급.mp3")); //2
@@ -108,10 +111,11 @@ public class View {
 					if (dao.login(dto) == 2) {
 						System.out.println("로그인 실패");
 						System.out.println("ID와 PW를 다시 확인해주세요");
-					
+						
 					}
 					}
 				}
+				
 				
 				// 로그인 이후 게임 실행(프롤로그 진입)
 				// 프롤로그
