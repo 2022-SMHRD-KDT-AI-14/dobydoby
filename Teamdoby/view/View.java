@@ -29,6 +29,7 @@ public class View {
 		BonusGame bg = new BonusGame();
 		int menu = 0;
 		
+		
 		ArrayList<MusicVO> musicList = new ArrayList<MusicVO>();
 		
 		
@@ -161,6 +162,7 @@ public class View {
 			}
 			if(menu==4) {	// 종료
 				System.out.println("종료되었습니다.");
+				mp3.stop(); //mp3 스탑
 				end++;
 				break;
 			}
